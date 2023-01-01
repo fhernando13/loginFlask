@@ -1,0 +1,48 @@
+{% include 'layout.html' %}
+
+<div class="container pt-5">
+    <h1 class="text-center">Actualizar mis datos</h1>
+    <br>
+    <form action="/update_user/{{user.id_user}}" method="POST">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <div class="container pt-4">
+    
+            <div class="row"> 
+                <div class="col-sm-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="addon-wrapping">Nombre</span>
+                        <input type="text" name="name" class="form-control" placeholder="Ingrese el nombre" aria-label="name" aria-describedby="addon-wrapping" value="{{user.name}}">
+                    </div>
+                </div>
+    
+                <div class="col-sm-8">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="addon-wrapping">Apellidos</span>
+                        <input type="text" name="lastname" class="form-control" placeholder="Ingrese los apellidos" aria-label="lastname" aria-describedby="addon-wrapping" value="{{user.lastname}}">
+                    </div>
+                </div>
+            </div>
+    
+                <div class="col-sm-10">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="addon-wrapping">Nickname</span>
+                        <input type="text" name="nickname" class="form-control" placeholder="Ingrese el nickname" aria-label="nickname" aria-describedby="addon-wrapping" value="{{user.nickname}}">
+                    </div>      
+                </div>  
+                
+                <div class="col-sm-11">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="addon-wrapping">Password</span>
+                        <input type="password" name="password" class="form-control" placeholder="Ingrese el password" aria-label="password" aria-describedby="addon-wrapping" value="{{user.password}}">
+                    </div>      
+                </div> 
+
+                <div class="col-sm-1">
+                    <div class="input-group mb-3">
+                        <button type="submit" class="btn btn-success">Actualizar</button>
+                    </div>
+                </div> 
+            </div>   
+        </div>
+    </form>
+</div>

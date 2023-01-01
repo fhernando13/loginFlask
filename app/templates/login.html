@@ -1,0 +1,54 @@
+{% include 'layoutlogin.html' %}
+
+<div class="container text-center">
+    <main class="form-signin">
+        <form action="/logear" method="POST">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <img class="mb-4" src="{{url_for('static', filename='images/python.png')}}" alt="" width="162" height="180">
+            <!-- mensajes de alerta -->
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <strong>
+                    {{ message }}
+                </strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>   
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            <h1 class="h3 mb-3 fw-normal">Login</h1>
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInput" name="nickname" placeholder="example-> user123" required>
+                <label for="floatingInput">Nickname</label>
+            </div>
+            <div class="checkbox mb-3">
+            
+            </div>
+
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingPassword" name="password" placeholder="Password" required>
+                <label for="floatingPassword">Password</label>
+            </div>
+        
+            <div class="checkbox mb-3">
+            
+            </div>
+
+            <div class="form-floating">
+                <button class="w-100 btn btn-lg btn-primary"type="submit">Iniciar Sesion</button>
+            </div>
+
+            <div class="checkbox mb-3">
+            
+            </div>
+
+            <div class="form-floating">
+                <a href="{{url_for('login.register')}}"><button type="button" class="w-100 btn btn-lg btn-success">Registrarse</button></a>
+            </div>
+            
+            <p class="mt-5 mb-3 text-muted">&copy; 2022–2022</p>
+      </form>
+    </main>
+</div>

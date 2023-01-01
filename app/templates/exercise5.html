@@ -1,0 +1,75 @@
+{% include 'layout.html' %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-danger alert-dismissible" role="alert">
+    <strong>
+        {{ message }}
+    </strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>   
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<h3>Bienvenido: {{name}}</h3>
+
+<div class="container-fluid">
+    <h5>Lista aleatoria, Número k: {{mynumber}}</h2>
+    <div class="border border-2 border-danger text-left pt-3" id="p1">
+        <p class="text-break">
+            {% for num in mylist %}
+                {{ num }}
+            {% endfor %}
+        </p>   
+    </div>
+
+    <br>
+
+    <h5>Números menores a {{mynumber}}</h4>
+    <div class="border border-2 border-danger text-left pt-3" id="p1">
+        <p class="text-break">
+            {% for num in numMinors %}
+                {{ num }}
+            {% endfor %}
+        </p>
+    </div>
+
+    <br>
+
+    <h5>Números mayores a {{mynumber}}</h4>
+    <div class="border border-2 border-danger text-left pt-3" id="p1">
+        <p class="text-break">
+            {% for num in numGreater %}
+                {{ num }}
+            {% endfor %}
+        </p>
+    </div>
+
+    <br>
+
+    <h5>Números iguales a {{mynumber}}</h4>
+    <div class="border border-2 border-danger text-left pt-3" id="p1">
+        <p class="text-break">
+            {% for num in numSame %}
+                {{ num }}
+            {% endfor %}
+        </p>
+    </div>
+
+    <br>
+
+    <h5>Números multiplos de {{mynumber}}</h4>
+    <div class="border border-2 border-danger text-left pt-3" id="p1">
+        <p class="text-break">
+            {% for num in numMultiples %}
+                {{ num }}
+            {% endfor %}
+        </p>
+    </div>
+
+    <br>
+    <br>
+   
+</div>
+

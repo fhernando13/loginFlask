@@ -1,0 +1,84 @@
+{% include 'layout.html' %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-danger alert-dismissible" role="alert">
+    <strong>
+        {{ message }}
+    </strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>   
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<h3>Bienvenido: {{name}}</h3>
+
+<div class="container-fluid" id="p2">
+    <div class="row">
+
+        <div class="text-left pt-3 col-sm-2" >
+            <h5>Candidatas</h5>
+            <br>
+            {% for woman in candidatesWoman %}
+                <li>
+                    <h7>Soy la candidata: {{woman}}, vote por mi</h7>
+                </li>
+            {% endfor %}
+            <br>
+            <h5>Candidatos</h5>
+            {% for man in candidatesMan %}
+            <li>
+                <h7>Soy el candidato: {{man}}, vote por mi</h7>
+            </li>
+            {% endfor %}
+            <br>
+        </div>
+
+        <div class="col-sm-1">
+            
+        </div>
+        
+        <div class="text-left pt-3 col-sm-4">
+            <h5>Votantes</h5>
+            <br>
+            {% for greetm in greetWM %}
+                <li>
+                    <h7>{{greetm}}</h7>
+                </li>
+            {% endfor %}
+
+            {% for greetw in greetWW %}
+                <li>
+                    <h7>{{greetw}}</h7>
+                </li>
+            {% endfor %}
+        </div>
+
+        <div class="col-sm-1">
+            
+        </div>
+
+        <div class="text-left pt-3 col-sm-4">
+            <h5>Votantes</h5>
+            <br>
+            {% for greet in greetMM %}
+                <li>
+                    <h7>{{greet}}</h7>
+                </li>
+            {% endfor %}
+
+            {% for greet in greetMW %}
+                <li>
+                    <h7>{{greet}}</h7>
+                </li>
+            {% endfor %}
+        </div>
+
+    </div>
+
+</div>
+
+
+
+

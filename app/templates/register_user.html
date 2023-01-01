@@ -1,0 +1,74 @@
+{% include 'layout.html' %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-danger alert-dismissible" role="alert">
+    <strong>
+        {{ message }}
+    </strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>   
+{% endfor %}
+{% endif %}
+{% endwith %}
+    
+<div class="container pt-5">
+    <h1 class="text-center">Ingrese sus datos por favor</h1>
+    <br>
+    
+    <form action="register_user"  method="POST" id="formulario">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <div class="container pt-4">
+    
+            <div class="row"> 
+                <div class="col-sm-6">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="addon-wrapping">Nombre</span>
+                        <input id="name" type="text" name="name" class="form-control" placeholder="Ingrese el nombre" aria-label="name" aria-describedby="addon-wrapping" >
+                    </div>
+                </div>
+    
+                <div class="col-sm-6">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="addon-wrapping">Apellidos</span>
+                        <input id="lastname" type="text" name="lastname" class="form-control" placeholder="Ingrese los apellidos" aria-label="lastname" aria-describedby="addon-wrapping">
+                    </div>
+                </div>
+            </div>
+       
+                <div class="col-sm-12">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="addon-wrapping">Nickname</span>
+                        <input id="nickname" type="text" name="nickname" class="form-control" placeholder="Ingrese el nickname (maximo 12 caracteres)" aria-label="nickname" aria-describedby="addon-wrapping">
+                    </div>      
+                </div>  
+
+                <div class="col-sm-12">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="addon-wrapping">Password</span>
+                        <input id="password" type="text" name="password" class="form-control" placeholder="Ingrese el password" aria-label="password" aria-describedby="addon-wrapping">
+                    </div>      
+                </div> 
+                
+                <div class="col-sm-12">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="addon-wrapping">Password</span>
+                        <input id="password" type="text" name="password2" class="form-control" placeholder="Ingrese nuevamente password" aria-label="password" aria-describedby="addon-wrapping">
+                    </div>      
+                </div> 
+
+                <div class="checkbox terms-checkbox">
+                    <label>
+                      <input type="checkbox" id="terms" id="checkbox" required> Acepto los términos y condiciones
+                    </label>
+                </div>
+                <br>
+                <div class="col-sm-1">
+                    <div class="input-group mb-3">
+                        <button type="submit" class="btn btn-success">Resgistrarse</button>
+                    </div>
+                </div> 
+            </div>   
+        </div>
+    </form>
+    

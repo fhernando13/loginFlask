@@ -1,0 +1,20 @@
+version: '3.1'
+services:
+  flaskapp:
+      container_name: flaskapp
+      build: 
+        context: .
+        dockerfile: Dockerfile
+      ports:
+        - "7000:8000"
+      restart: always
+  psql:
+    container_name: psql
+    image: postgres:14
+    ports:
+      - "5454:5432"
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=admin1234
+      - POSTGRES_USER=admin
+    restart: unless-stopped

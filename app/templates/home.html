@@ -1,0 +1,56 @@
+{% include 'layout.html' %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-danger alert-dismissible" role="alert">
+    <strong>
+        {{ message }}
+    </strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>   
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    </div>
+
+    <!--Image 1-->
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000"><a href="{{url_for('operations.exercise4')}}">
+        <img src="{{url_for('static', filename='images/tuplas.jpg')}}" class="d-md-block w-100" alt="..." width="50%" height="100%"></a>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Exercise 4</h5>
+          <p>Tupla de tuplas</p>
+        </div>
+      </div>
+
+      <!--Image 2-->
+      <div class="carousel-item" data-bs-interval="2000"><a href="{{url_for('operations.exercise5')}}">
+        <img src="{{url_for('static', filename='images/listas.jpg')}}" class="d-md-block w-100" alt="..." width="50%" height="100%"></a>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Exercise 5</h5>
+          <p>Lista de números</p>
+        </div>
+      </div>
+    </div>
+
+    <!--Controls-->
+    <!--Button 1-->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <!--Button 1-->
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+
